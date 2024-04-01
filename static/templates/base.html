@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Admin Press Admin Template - The Ultimate Bootstrap 4 Admin Template</title>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- chartist CSS -->
+    <link rel="stylesheet" href="{% static 'css/chartist.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/chartist-init.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.toast.css' %}">
+    <link rel="stylesheet" href="{% static 'css/chartist-plugin-tooltip.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-material-datetimepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-clockpicker.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/asColorPicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css//bootstrap-datepicker.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-timepicker.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/daterangepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sweetalert.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-select.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/select2.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/multi-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-tagsinput.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-switch.min.css' %}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <!-- You can change the theme colors from here -->
+    <link rel="stylesheet" id="theme" href="{% static 'css/blue.css' %}">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<style>
+    .font-normal {
+        margin-left: 30px;
+    }
+    p.font-normal{
+        color: #9d9696;
+    }
+    .myText {
+        margin-bottom: 10px;
+        margin-top: 20px
+    }
+    .mega-dropdown .dropdown-menu {
+        width: 50%;
+        margin-left: 400px;
+        margin-top: 80px;
+    }
+</style>
+
+<body class="fix-header card-no-border logo-center">
+    <div id="main-wrapper">
+        <!--平台名称-->
+        <header class="topbar" >
+            <nav class="navbar top-navbar navbar-expand-md navbar-light" style="background-color: #1976d2; max-width: 3000px; height: 65px">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'user' %}">
+                        <b>
+                            <img style="margin-top: -5px" src="{% static 'picture/logo-light-icon.png' %}" alt="测试辅助工具平台" class="light-logo">
+                        </b>
+                        <span style="color: #FFFFFF; font-weight: bold; font-size: 22px">
+                            测试辅助工具平台
+                        </span>
+                    </a>
+                </div>
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+
+                    <ul class="navbar-nav mr-auto mt-md-0">
+                    </ul>
+                    <ul class="navbar-nav my-lg-0">
+                    <!-- ============================================================== -->
+                    <li class="nav-item dropdown mega-dropdown">
+                        <a style="margin-right: -10px" class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="mdi mdi-view-grid"></i>
+                        意见反馈</a>
+                        <span class="badge badge-warning ml-auto" style="padding: 0.15em 0.2em">{{ FeedBack_count }}</span>
+                        <div class="dropdown-menu animated slideInUp">
+                            <ul class="mega-dropdown-menu row">
+                                <li class="col-lg-10  m-b-60"  style="margin:0 auto">
+                                    <h4 class="m-b-20"><i class="mdi mdi-clipboard-text"></i> 反馈信息填写</h4>
+                                    <!-- Contact -->
+                                    <form method="POST" action="{% url 'user:feedback' %}" autocomplete="off">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <input name="title" type="text" class="form-control" id="exampleInputname1" placeholder="工具名称（例：解除绑定关系）" maxlength="50" required> </div>
+                                        <div class="form-group">
+                                            <textarea name="content" class="form-control" id="exampleTextarea" rows="5" placeholder="反馈内容（例：解绑的员工类型选择项，建议区分线上和线下顾问）" required></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-info">提交</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- ============================================================== -->
+                    <!-- End Messages -->
+                    <!-- ============================================================== -->
+                </ul>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!--导航栏-->
+        <aside class="left-sidebar">
+            <div class="scroll-sidebar">
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="nav-small-cap">PERSONAL</li>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="{% url 'user' %}" aria-expanded="false"><i class="mdi mdi-account"></i><span class="hide-menu">用户相关</span></a>
+                        </li>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="{% url 'order' %}" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">订单相关</span></a>
+                        </li>
+                        <li>
+                            <a href="https://duobaoyu.yuque.com/lq96tk/hn7lk6/vbxu1e" target="_blank" style="font-weight: bold;">
+                                <i class="mdi mdi-link-variant"></i>平台帮助文档
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        {% block content %}
+            <!--重写的入口内容-->
+            active
+        {% endblock %}
+
+    </div>
+
+    {% load static %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.slimscroll.js' %}"></script>
+    <script src="{% static 'js/waves.js' %}"></script>
+    <script src="{% static 'js/sidebarmenu.js' %}"></script>
+    <script src="{% static 'js/sticky-kit.min.js' %}"></script>
+    <script src="{% static 'js/jquery.sparkline.min.js' %}"></script>
+    <script src="{% static 'js/custom.min.js' %}"></script>
+    <script src="{% static 'js/skycons.js' %}"></script>
+    <script src="{% static 'js/chartist.min.js' %}"></script>
+    <script src="{% static 'js/chartist-plugin-tooltip.min.js' %}"></script>
+    <script src="{% static 'js/jquery.toast.js' %}"></script>
+    <script src="{% static 'js/toastr.js' %}"></script>
+    <script src="{% static 'js/moment.js' %}"></script>
+    <script src="{% static 'js/bootstrap-material-datetimepicker.js' %}"></script>
+    <script src="{% static 'js/jquery-clockpicker.min.js' %}"></script>
+    <script src="{% static 'js/jquery-asColor.js' %}"></script>
+    <script src="{% static 'js/daterangepicker.js' %}"></script>
+    <script src="{% static 'js/jquery-asGradient.js' %}"></script>
+    <script src="{% static 'js/jquery-asColorPicker.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-timepicker.min.js' %}"></script>
+    <script src="{% static 'js/daterangepicker.js' %}"></script>
+    <script src="{% static 'js/icheck.min.js' %}"></script>
+    <script src="{% static 'js/icheck.init.js' %}"></script>
+    <script src="{% static 'js/sweetalert.min.js' %}"></script>
+    <script src="{% static 'js/jquery.sweet-alert.custom.js' %}"></script>
+    <script src="{% static 'js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'js/select2.full.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-tagsinput.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-switch.min.js' %}"></script>
+    <script>
+        // MAterial Date picker
+        $('#mdate').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
+             $('#timepicker').bootstrapMaterialDatePicker({ format : 'HH:mm', time: true, date: false });
+        $('#date-format').bootstrapMaterialDatePicker({ format : 'dddd DD MMMM YYYY - HH:mm' });
+
+            $('#min-date').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY HH:mm', minDate : new Date() });
+        // Clock pickers
+        $('#single-input').clockpicker({
+            placement: 'bottom',
+            align: 'left',
+            autoclose: true,
+            'default': 'now'
+        });
+        $('.clockpicker').clockpicker({
+            donetext: 'Done',
+        }).find('input').change(function() {
+            console.log(this.value);
+        });
+        $('#check-minutes').click(function(e) {
+            // Have to stop propagation here
+            e.stopPropagation();
+            input.clockpicker('show').clockpicker('toggleView', 'minutes');
+        });
+        if (/mobile/i.test(navigator.userAgent)) {
+            $('input').prop('readOnly', true);
+        }
+        // Colorpicker
+        $(".colorpicker").asColorPicker();
+        $(".complex-colorpicker").asColorPicker({
+            mode: 'complex'
+        });
+        $(".gradient-colorpicker").asColorPicker({
+            mode: 'gradient'
+        });
+        // Date Picker
+        jQuery('.mydatepicker, #datepicker').datepicker();
+        jQuery('#datepicker-autoclose').datepicker({
+            autoclose: true,
+            todayHighlight: true
+        });
+        jQuery('#date-range').datepicker({
+            toggleActive: true
+        });
+        jQuery('#datepicker-inline').datepicker({
+            todayHighlight: true
+        });
+        // Daterange picker
+        $('.input-daterange-datepicker').daterangepicker({
+            buttonClasses: ['btn', 'btn-sm'],
+            applyClass: 'btn-danger',
+            cancelClass: 'btn-inverse'
+        });
+        $('.input-daterange-timepicker').daterangepicker({
+            timePicker: true,
+            format: 'MM/DD/YYYY h:mm A',
+            timePickerIncrement: 30,
+            timePicker12Hour: true,
+            timePickerSeconds: false,
+            buttonClasses: ['btn', 'btn-sm'],
+            applyClass: 'btn-danger',
+            cancelClass: 'btn-inverse'
+        });
+        $('.input-limit-datepicker').daterangepicker({
+            format: 'MM/DD/YYYY',
+            minDate: '06/01/2015',
+            maxDate: '06/30/2015',
+            buttonClasses: ['btn', 'btn-sm'],
+            applyClass: 'btn-danger',
+            cancelClass: 'btn-inverse',
+            dateLimit: {
+                days: 6
+            }
+        });
+    </script>
+    <script type="text/javascript">
+    $(".bt-switch input[type='checkbox'], .bt-switch input[type='radio']").bootstrapSwitch();
+    var radioswitch = function() {
+        var bt = function() {
+            $(".radio-switch").on("switch-change", function() {
+                $(".radio-switch").bootstrapSwitch("toggleRadioState")
+            }), $(".radio-switch").on("switch-change", function() {
+                $(".radio-switch").bootstrapSwitch("toggleRadioStateAllowUncheck")
+            }), $(".radio-switch").on("switch-change", function() {
+                $(".radio-switch").bootstrapSwitch("toggleRadioStateAllowUncheck", !1)
+            })
+        };
+        return {
+            init: function() {
+                bt()
+            }
+        }
+    }();
+    $(document).ready(function() {
+        radioswitch.init()
+    });
+    </script>
+    <script src="{% static 'js/jQuery.style.switcher.js' %}"></script>
+</body>
+
+</html>

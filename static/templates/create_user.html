@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+<body class="fix-header card-no-border logo-center">
+    <div id="main-wrapper">
+        {% block content %}
+        <style>
+            #console {
+                min-height: 640px;
+            }
+            .myCheck {
+                margin-right: -110px
+            }
+            .form-group {
+                margin-top: -10px;
+            }
+            label.title {
+                color: #0b2e13;
+            }
+            .label-info {
+                background-color: #22c8c0
+            }
+            .bootstrap-tagsinput {
+                min-width: 100%;
+            }
+        </style>
+
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <!-- Row -->
+                <div class="row" style="margin-top: 20px">
+                    <div class="col-md-6">
+                        <div class="card card-body" id="console" style="background-color: #000000;
+							  padding: 20px; color: #9eeaf9">控制台>>
+                            <a style="text-align: right; margin-top: -25px" class="btn-minimize" data-action="expand">
+                                <i class="mdi mdi-arrow-expand"></i>
+                            </a>
+                            <div class="error" style="font-size: 13px; color: #d1dde4; margin-top: 10px">
+                                {{ msg | linebreaks }}
+                                {% for key,err in create_user_form.errors.items %}
+                                {{ err }}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card card-body" id="console">
+                            <h3 class="box-title m-b-0">创建用户
+                                <span class="text-muted m-b-10 font-10" style="font-size: 14px">（提供者：张某某）
+                                </span>
+                            </h3>
+                            <p class="text-muted m-b-10 font-12"></p>
+                            <div class="row">
+                                <div class="col-sm-12 col-xs-12">
+                                    <form method="POST" action="{% url 'user:add_user' %}" autocomplete="off">
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-lg-8">
+												 <label class="title">环境</label>
+                                                 <div class="col-md-9" style="margin-left: -15px">
+                                                    <div class="radio-list">
+                                                        <label class="custom-control custom-radio">
+                                                            <input id="radio1" value="开发" name="environment" type="radio" class="custom-control-input">
+                                                            <span class="custom-control-indicator"></span>
+                                                            <span class="custom-control-description">开发</span>
+                                                        </label>
+                                                        <label class="custom-control custom-radio">
+                                                            <input id="radio2" value="测试" name="environment" type="radio" checked="" class="custom-control-input">
+                                                            <span class="custom-control-indicator"></span>
+                                                            <span class="custom-control-description">测试</span>
+                                                        </label>
+                                                        <label class="custom-control custom-radio">
+                                                            <input id="radio3" value="线上" name="environment" type="radio" class="custom-control-input">
+                                                            <span class="custom-control-indicator"></span>
+                                                            <span class="custom-control-description">线上</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+											</div>
+											<div class="col-lg-4" style="margin-left: -95px">
+												<label class="title">婚姻状况</label>
+                                                <div class="switch">
+                                                    <label style="font-size: 15px">已婚<input type="checkbox" name="is_marital" checked=""><span class="lever"></span>未婚</label>
+                                                </div>
+											</div>
+
+                                        </div>
+                                        <div class="row" style="margin-bottom: 12px; margin-top: 0px">
+                                            <div class="col-lg-6">
+												 <label class="title">用户名</label>
+                                                <input type="text" class="form-control" placeholder="请输入用户名" name="user_name" maxlength="20" required>
+											</div>
+											<div class="col-lg-6">
+												<label class="title">出生年月</label>
+                                            <input type="text" class="form-control" placeholder="请选择年-月-日" id="mdate" name="birthdate" required>
+											</div>
+										</div>
+                                        <div class="row" style="margin-bottom: 10px">
+                                            <div class="col-lg-6">
+												<label class="title">体重（kg）</label>
+												<input class="form-control" type="number" value="50" id="example-number-input" name="weight" required>
+											</div>
+											<div class="col-lg-6">
+												<label class="title">性别</label>
+												<select class="form-control custom-select" name="sex">
+                                                <option value="1">男</option>
+                                                <option value="2">女</option>
+                                            </select>
+											</div>
+										</div>
+                                        <div class="form-group">
+                                            <p style="margin-top: 25px; margin-bottom: -3px"><label class="title">个人标签（输入后回车添加标签）</label></p>
+                                            <input type="text" value="性格外向,乐于助人,热爱集体" name="personality_label" data-role="tagsinput" placeholder="添加标签">
+                                        </div>
+                                        <div class="demo-checkbox">
+											<div class="form-group">
+												<label class="title">爱好</label>
+												<div style="display: flex; margin-top: -10px">
+													<input name="interest1" value="游泳" id="md_checkbox_1" type="checkbox" class="chk-col-cyan" checked="">
+													<label class="myCheck" for="md_checkbox_1">游泳</label>
+													<input name="interest2" value="篮球" id="md_checkbox_2" type="checkbox" class="chk-col-cyan" checked="">
+													<label class="myCheck" for="md_checkbox_2">篮球</label>
+													<input name="interest3" value="网球" id="md_checkbox_3" type="checkbox" class="chk-col-cyan" checked="">
+													<label class="myCheck" for="md_checkbox_3">网球</label>
+                                                    <input name="interest4" value="爬山" id="md_checkbox_4" type="checkbox" class="chk-col-cyan">
+													<label class="myCheck" for="md_checkbox_4">爬山</label>
+                                                    <input name="interest5" value="滑雪" id="md_checkbox_5" type="checkbox" class="chk-col-cyan">
+													<label for="md_checkbox_5">滑雪</label>
+												</div>
+											</div>
+										</div>
+										<div class="form-group" style="margin-top: -20px">
+                                            <label class="title">座右铭</label>
+                                            <textarea type="text" class="form-control" placeholder="请输入座右铭" name="motto" maxlength="1000"></textarea>
+                                        </div>
+                                        <button type="submit" class="tst3 btn btn-success waves-effect waves-light m-r-10">执行</button>
+                                        <button type="reset" class="btn btn-inverse waves-effect waves-light">重置</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <footer class="footer" style="font-size: 14px">Copyright 2021 凡声出品 浙ICP备2020045241号-2<a target="_blank" href="https://sc.chinaz.com/moban/"></a></footer>
+        </div>
+        {% endblock %}
+    </div>
+</body>
+
+</html>
