@@ -7,10 +7,8 @@ function print_line() {
   done
 }
 
-print_line
 echo -ne "\n"
-echo -ne "nohup python3 manage.py runserver 0:
- >> server.out 2>&1 &"
+print_line
 echo -ne "\n"
 #chmod 755 *
 python3 manage.py makemigrations
