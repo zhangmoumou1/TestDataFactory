@@ -1,2 +1,2 @@
 # TestDataFactory
-测试业务相关的造数平台，使用Django和Bootstrap提供前后端解决方案
+测试业务相关的造数平台，使用Django和Bootstrap开发
