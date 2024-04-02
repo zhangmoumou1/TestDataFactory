@@ -93,6 +93,31 @@ body a {
 	color: #198754;
 }
 
+#scroll-top {
+	background-color: #404449;
+	color: #fff;
+	cursor: pointer;
+	position: fixed;
+	bottom: 55px;
+	font-size: 20px;
+	width: 50px;
+	height: 50px;
+	right: 5px;
+	opacity: 0;
+	z-index: 999;
+	-webkit-transition: opacity .3s;
+	transition: opacity .3s
+}
+#scroll-top.in {
+	opacity: .5;
+	transition: opacity .3s
+}
+#scroll-top.in:hover {
+	opacity: 1;
+	-webkit-transition: opacity .3s;
+	transition: opacity .3s
+}
+
 #defaultCheck1 {
 	background-color: #198754;
 	border: 1px solid #198754;

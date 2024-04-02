@@ -154,7 +154,8 @@
             <!--重写的入口内容-->
             active
         {% endblock %}
-
+        <button id="scroll-top" class="btn btn-secondary" style="position: fixed;top: 90%;right: 1%;transform:
+        translateY(-50%);z-index: 1000"><i class="fa fa-chevron-up"></i></button>
     </div>
 
     {% load static %}
@@ -191,6 +192,7 @@
     <script src="{% static 'js/select2.full.min.js' %}"></script>
     <script src="{% static 'js/bootstrap-tagsinput.min.js' %}"></script>
     <script src="{% static 'js/bootstrap-switch.min.js' %}"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
     <script>
         // MAterial Date picker
         $('#mdate').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
