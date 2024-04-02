@@ -1,6 +1,8 @@
 # TestDataFactory
 ## 一、平台架构介绍
-使用Django（后端）+bootstrap（前端）+Mysql开发
+
+Django（后端）+bootstrap（前端）+Mysql
+
 ![img.png](static/picture/doc2.png)
 ![img.png](static/picture/doc3.png)
 ### 1、Django介绍（python开发框架）
