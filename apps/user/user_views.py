@@ -49,6 +49,7 @@ def feedback(request):
         return render(request, 'base_user.html')
     else:
         feedback_form = FeedbackForm(request.POST)
+        print(feedback_form)
         if feedback_form.is_valid():
             title = feedback_form.cleaned_data['title']
             content = feedback_form.cleaned_data['content']

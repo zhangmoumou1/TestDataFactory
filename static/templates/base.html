@@ -101,26 +101,26 @@
                     <ul class="navbar-nav my-lg-0">
                     <!-- ============================================================== -->
                     <li class="nav-item dropdown mega-dropdown">
-                        <a style="margin-right: -10px" class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="mdi mdi-view-grid"></i>
+                        <a data-bs-toggle="modal" data-bs-target="#modal-team" style="margin-right: -10px" class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="mdi mdi-view-grid"></i>
                         意见反馈</a>
                         <span class="badge badge-warning ml-auto" style="padding: 0.15em 0.2em">{{ FeedBack_count }}</span>
-                        <div class="dropdown-menu animated slideInUp">
-                            <ul class="mega-dropdown-menu row">
-                                <li class="col-lg-10  m-b-60"  style="margin:0 auto">
-                                    <h4 class="m-b-20"><i class="mdi mdi-clipboard-text"></i> 反馈信息填写</h4>
-                                    <!-- Contact -->
-                                    <form method="POST" action="{% url 'user:feedback' %}" autocomplete="off">
-                                        {% csrf_token %}
-                                        <div class="form-group">
-                                            <input name="title" type="text" class="form-control" id="exampleInputname1" placeholder="工具名称（例：解除绑定关系）" maxlength="50" required> </div>
-                                        <div class="form-group">
-                                            <textarea name="content" class="form-control" id="exampleTextarea" rows="5" placeholder="反馈内容（例：解绑的员工类型选择项，建议区分线上和线下顾问）" required></textarea>
-                                        </div>
-                                        <button type="submit" class="btn btn-info">提交</button>
-                                    </form>
-                                </li>
-                            </ul>
-                        </div>
+<!--                        <div class="dropdown-menu animated slideInUp">-->
+<!--                            <ul class="mega-dropdown-menu row">-->
+<!--                                <li class="col-lg-10  m-b-60"  style="margin:0 auto">-->
+<!--                                    <h4 class="m-b-20"><i class="mdi mdi-clipboard-text"></i> 反馈信息填写</h4>-->
+<!--                                    &lt;!&ndash; Contact &ndash;&gt;-->
+<!--                                    <form method="POST" action="{% url 'user:feedback' %}" autocomplete="off">-->
+<!--                                        {% csrf_token %}-->
+<!--                                        <div class="form-group">-->
+<!--                                            <input name="title" type="text" class="form-control" id="exampleInputname1" placeholder="工具名称（例：解除绑定关系）" maxlength="50" required> </div>-->
+<!--                                        <div class="form-group">-->
+<!--                                            <textarea name="content" class="form-control" id="exampleTextarea" rows="5" placeholder="反馈内容（例：解绑的员工类型选择项，建议区分线上和线下顾问）" required></textarea>-->
+<!--                                        </div>-->
+<!--                                        <button type="submit" class="btn btn-info">提交</button>-->
+<!--                                    </form>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
                     </li>
                     <!-- ============================================================== -->
                     <!-- End Messages -->
@@ -149,6 +149,32 @@
                 </nav>
             </div>
         </aside>
+        <div class="modal modal-blur fade" id="modal-team" tabindex="-1" role="dialog" aria-hidden="true">
+            <form method="POST" action="{% url 'user:feedback' %}" autocomplete="off" style="margin-top: 150px">
+                {% csrf_token %}
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">反馈信息填写</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="col-auto" style="padding: 20px">
+                            <label class="title">用户名</label>
+                            <input name="title" type="text" class="form-control" id="exampleInputname1" placeholder="工具名称（例：解除绑定关系）" maxlength="50" required />
+                        </div>
+                        <div class="col-auto" style="padding: 20px">
+                        <label class="form-label">反馈内容</label>
+                        <textarea name="content" class="form-control" id="exampleTextarea" rows="5" placeholder="反馈内容（例：解绑的员工类型选择项，建议区分线上和线下顾问）" required></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn me-auto" data-bs-dismiss="modal">关闭</button>
+                            <button type="submit" class="btn btn-success">提交</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
 
         {% block content %}
             <!--重写的入口内容-->
