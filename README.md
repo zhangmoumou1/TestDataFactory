@@ -228,7 +228,7 @@ python建议安装3.8以上版本，并执行以下命令安装依赖包
 在./apps/user/urls.py新增页面地址
 
     from django.conf.urls import include, url
-    from .user_views import add_user, feedback
+    from .user_views import add_user
     
     urlpatterns = [
         url(r'^adduser/$', add_user, name='add_user'),
