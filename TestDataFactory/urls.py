@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include, url
-from order import order_views
-from user import user_views
+from apps.order import order_views
+from apps.user import user_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', user_views.user, name='user'),
     path('user', user_views.user, name='user'),
     path('order', order_views.order, name='order'),
     url(r'^tools/', include(('user.urls', 'user'), namespace='user')),

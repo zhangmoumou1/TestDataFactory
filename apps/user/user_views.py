@@ -94,7 +94,7 @@ def add_user(request):
                            create_user_form.cleaned_data['interest3'] + create_user_form.cleaned_data['interest4'] + \
                            create_user_form.cleaned_data['interest5']
                 motto = create_user_form.cleaned_data['motto']
-                # 调用业务脚本
+                # 调用业务核心脚本
                 result = CreateUser.user(user_name, env,  is_marital_dict[is_marital], birthdate, weight, sex_dict[sex],
                                          personality_label, interest, motto)
                 # 保存数据至表

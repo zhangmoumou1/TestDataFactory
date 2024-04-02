@@ -18,7 +18,7 @@ class CreateUser(object):
     @staticmethod
     def user(user_name, env, is_marital, birthdate, weight, sex, personality_label, interest='无', motto='无'):
         """
-        举例说明，无具体代码
+        本功能无具体业务，只是个模板例子
         """
         try:
             info = f'用户名：{user_name}，\n' \
