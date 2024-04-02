@@ -1,7 +1,14 @@
 # TestDataFactory
 ## 一、平台架构介绍
+### 技术栈
+- [x] 🎨 Django（后端）
+- [x] 🏐 Bootstrap（前端）
+- [x] 👟 Mysql
 
-Django（后端）+bootstrap（前端）+Mysql
+### 参考文档
+- [x] 🚚 Django官方文档：https://docs.djangoproject.com/zh-hans/3.1/
+- [x] ☕ Bootstrap官方文档：https://v4.bootcss.com/docs
+- [x] ⚽ 前端组件代码参考：./static/平台demo.rar（注意引用js和css库）
 
 ![img.png](static/picture/doc2.png)
 ![img.png](static/picture/doc3.png)
@@ -233,6 +240,7 @@ python建议安装3.8以上版本，并执行以下命令安装依赖包
 ![img.png](static/picture/doc5.png)
 
 ##### 1）编写详情页
+##### ☕具体前端组件代码可参考./static/平台demo.rar
 在./static/templates下，新增页面`create_user.html`
 
 详见具体代码...
