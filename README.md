@@ -10,8 +10,8 @@
 - [x] ☕ Bootstrap官方文档：https://v4.bootcss.com/docs
 - [x] ⚽ 前端组件代码参考：./static/平台demo.rar（注意引用js和css库）
 
-![img.png](static/picture/doc2.png)
 ![img.png](static/picture/doc3.png)
+![img.png](static/picture/doc2.png)
 ### 1、Django介绍（python开发框架）
 ![img.png](static/picture/doc1.png)
 官方文档：https://docs.djangoproject.com/zh-hans/2.0/
