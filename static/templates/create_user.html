@@ -87,12 +87,12 @@
                                         </div>
                                         <div class="row" style="margin-bottom: 12px; margin-top: 0px">
                                             <div class="col-lg-6">
-												 <label class="title">用户名</label>
+												<label class="title">用户名</label>
                                                 <input type="text" class="form-control" placeholder="请输入用户名" name="user_name" maxlength="20" required>
 											</div>
 											<div class="col-lg-6">
 												<label class="title">出生年月</label>
-                                            <input type="text" class="form-control" placeholder="请选择年-月-日" id="mdate" name="birthdate" required>
+                                            <input type="text" class="form-control" value="2020-06-20" placeholder="请选择年-月-日" id="mdate" name="birthdate" required>
 											</div>
 										</div>
                                         <div class="row" style="margin-bottom: 10px">
@@ -133,8 +133,34 @@
                                             <label class="title">座右铭</label>
                                             <textarea type="text" class="form-control" placeholder="请输入座右铭" name="motto" maxlength="1000"></textarea>
                                         </div>
-                                        <button type="submit" class="tst3 btn btn-success waves-effect waves-light m-r-10">执行</button>
-                                        <button type="reset" class="btn btn-inverse waves-effect waves-light">重置</button>
+                                        <button type="submit" class="tst3 btn btn-success waves-effect waves-light m-r-15">执行</button>
+                                        <button type="reset" class="btn btn-inverse waves-effect waves-light m-r-15">重置</button>
+                                        <button id="myButton2" type="button" class="btn btn-warning waves-effect waves-light"data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal">规则
+                                        </button>
+                                        <div class="modal modal-blur fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">规则详情</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h5>1、注意事项1</h5>
+                                                        功能规则可在此处说明功能规则可在此处说明功能规则可在此处说明
+                                                        <br>
+                                                        <br>
+                                                        <h5>2、注意事项2</h5>
+                                                        功能规则可在此处说明功能规则可在此处说明功能规则可在此处说明
+                                                        <br>
+                                                        功能规则可在此处说明...
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">关闭</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
