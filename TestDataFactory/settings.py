@@ -17,7 +17,7 @@ from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0,'apps')  #目的是将文件夹apps设置为根目录
+sys.path.insert(0, 'apps')  #目的是将文件夹apps设置为根目录
 
 
 # Quick-start development settings - unsuitable for production
@@ -140,5 +140,3 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
-STATIC_URL = '/static/'
