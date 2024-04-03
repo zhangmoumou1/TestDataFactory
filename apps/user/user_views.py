@@ -12,12 +12,10 @@ def user_list_to_env(env):
     根据环境，生成列表
     :return:
     """
-    print(222222222222222)
     users = CreateUserTable.objects.filter(environment=env).order_by('-id')[:10]
     user_list = []
     id = 0
     for user in users:
-        print(user.user_name)
         id += 1
         user_list.append(
             {

@@ -22,7 +22,7 @@ class createUserForm(forms.Form):
         'required': '用户名必填',
     })
     environment = forms.CharField(required=True)
-    is_marital = forms.BooleanField(required=True)
+    is_marital = forms.BooleanField(required=False)
     birthdate = forms.CharField(required=True)
     sex = forms.IntegerField(required=True)
     weight = forms.IntegerField(required=True)
