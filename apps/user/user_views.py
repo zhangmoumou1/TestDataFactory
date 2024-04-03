@@ -7,6 +7,41 @@ from utils.script.create_user_constructor import CreateUser
 # Create your views here.
 
 
+def user_list_to_env(env):
+    """
+    根据环境，生成列表
+    :return:
+    """
+    print(222222222222222)
+    users = CreateUserTable.objects.filter(environment=env).order_by('-id')[:10]
+    user_list = []
+    id = 0
+    for user in users:
+        print(user.user_name)
+        id += 1
+        user_list.append(
+            {
+                'id': id,
+                'user_name': user.user_name,
+                'interest': user.interest,
+                'personality_label': user.personality_label,
+                'create_time': user.create_time
+            }
+        )
+    return user_list
+
+def create_user_list(request):
+    users_list_dev = user_list_to_env('开发')
+    users_list_test = user_list_to_env('测试')
+    users_list_online = user_list_to_env('线上')
+
+    context = {
+        'users_list_dev': users_list_dev,
+        'users_list_test': users_list_test,
+        'users_list_online': users_list_online
+    }
+    return context
+
 def custom_context_processor(request):
     """
     查询各功能的使用数，即表记录总数
@@ -34,6 +69,7 @@ def get_base_template_context(request):
         'custom_template_var': '这是一个自定义的基础模板变量',
     }
     base_template_context.update(custom_context_processor(request))
+    base_template_context.update(create_user_list(request))
     return base_template_context
 
 def user(request):

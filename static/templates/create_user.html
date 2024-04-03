@@ -135,8 +135,11 @@
                                         </div>
                                         <button type="submit" class="tst3 btn btn-success waves-effect waves-light m-r-15">执行</button>
                                         <button type="reset" class="btn btn-inverse waves-effect waves-light m-r-15">重置</button>
-                                        <button id="myButton2" type="button" class="btn btn-warning waves-effect waves-light"data-bs-toggle="modal"
+                                        <button id="myButton2" type="button" class="btn btn-warning waves-effect waves-light" data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal">规则
+                                        </button>
+                                        <button style="float: right" id="myButton2" type="button" class="btn btn-secondary waves-effect waves-light" data-bs-toggle="modal"
+                                                    data-bs-target="#recordList">提交记录
                                         </button>
                                         <div class="modal modal-blur fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -157,6 +160,112 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-success" data-bs-dismiss="modal">关闭</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal modal-blur fade" id="recordList" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <div class="card-body">
+                                                            <h4 class="card-title"><i class="mdi mdi-table"></i> 最近10条提交记录</h4>
+                                                            <!-- Nav tabs -->
+                                                            <ul class="nav nav-tabs" role="tablist">
+                                                                <li class="nav-item"> <a href="#dev" class="nav-link active" data-toggle="tab" aria-expanded="false">开发</a> </li>
+                                                                <li class="nav-item"> <a href="#test" class="nav-link" data-toggle="tab" aria-expanded="false">测试</a> </li>
+                                                                <li class="nav-item"> <a href="#online" class="nav-link" data-toggle="tab" aria-expanded="true">线上</a> </li>
+                                                            </ul>
+                                                            <div class="tab-content br-n pn">
+                                                                <div id="dev" class="tab-pane active">
+                                                                    <div class="card-body">
+                                                                        <div class="table-responsive">
+                                                                            <table class="table color-table success-table">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>ID</th>
+                                                                                        <th>姓名</th>
+                                                                                        <th>兴趣爱好</th>
+                                                                                        <th>个险标签</th>
+                                                                                        <th>创建时间</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                {% for user in users_list_dev %}
+                                                                                    <tr>
+                                                                                        <td>{{ user.id }}</td>
+                                                                                        <td>{{ user.user_name }}</td>
+                                                                                        <td>{{ user.interest }}</td>
+                                                                                        <td>{{ user.personality_label }}</td>
+                                                                                        <td>{{ user.create_time }}</td>
+                                                                                    </tr>
+                                                                                {% endfor %}
+
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="test" class="tab-pane">
+                                                                    <div class="card-body">
+                                                                        <div class="table-responsive">
+                                                                            <table class="table color-table success-table">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>ID</th>
+                                                                                        <th>姓名</th>
+                                                                                        <th>兴趣爱好</th>
+                                                                                        <th>个险标签</th>
+                                                                                        <th>创建时间</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                {% for user_test in users_list_test %}
+                                                                                    <tr>
+                                                                                        <td>{{ user_test.id }}</td>
+                                                                                        <td>{{ user_test.user_name }}</td>
+                                                                                        <td>{{ user_test.interest }}</td>
+                                                                                        <td>{{ user_test.personality_label }}</td>
+                                                                                        <td>{{ user_test.create_time }}</td>
+                                                                                    </tr>
+                                                                                {% endfor %}
+
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="online" class="tab-pane">
+                                                                    <div class="card-body">
+                                                                        <div class="table-responsive">
+                                                                            <table class="table color-table success-table">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>ID</th>
+                                                                                        <th>姓名</th>
+                                                                                        <th>兴趣爱好</th>
+                                                                                        <th>个险标签</th>
+                                                                                        <th>创建时间</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                {% for user_online in users_list_online %}
+                                                                                    <tr>
+                                                                                        <td>{{ user_online.id }}</td>
+                                                                                        <td>{{ user_online.user_name }}</td>
+                                                                                        <td>{{ user_online.interest }}</td>
+                                                                                        <td>{{ user_online.personality_label }}</td>
+                                                                                        <td>{{ user_online.create_time }}</td>
+                                                                                    </tr>
+                                                                                {% endfor %}
+
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
