@@ -6,70 +6,6 @@ from utils.script.create_user_constructor import CreateUser
 
 # Create your views here.
 
-
-def user_list_to_env(env):
-    """
-    根据环境，生成列表
-    :return:
-    """
-    users = CreateUserTable.objects.filter(environment=env).order_by('-id')[:10]
-    user_list = []
-    id = 0
-    for user in users:
-        id += 1
-        user_list.append(
-            {
-                'id': id,
-                'user_name': user.user_name,
-                'interest': user.interest,
-                'personality_label': user.personality_label,
-                'create_time': user.create_time
-            }
-        )
-    return user_list
-
-def create_user_list(request):
-    users_list_dev = user_list_to_env('开发')
-    users_list_test = user_list_to_env('测试')
-    users_list_online = user_list_to_env('线上')
-
-    context = {
-        'users_list_dev': users_list_dev,
-        'users_list_test': users_list_test,
-        'users_list_online': users_list_online
-    }
-    return context
-
-def custom_context_processor(request):
-    """
-    查询各功能的使用数，即表记录总数
-    :param request:
-    :return:
-    """
-    # 创建用户使用数
-    CreateUserTable_count = CreateUserTable.objects.all().count()
-    FeedBack_count = FeedBackTable.objects.filter(resolve='否').count()
-    count_dict = {
-        'CreateUserTable_count': CreateUserTable_count,
-        'FeedBack_count': FeedBack_count,
-    }
-    # 你可以在这里添加更多的动态内容到上下文中
-    return count_dict
-
-
-def get_base_template_context(request):
-    """
-    全局参数
-    :param request:
-    :return:
-    """
-    base_template_context = {
-        'custom_template_var': '这是一个自定义的基础模板变量',
-    }
-    base_template_context.update(custom_context_processor(request))
-    base_template_context.update(create_user_list(request))
-    return base_template_context
-
 def user(request):
     return render(request, "base_user.html")
 
@@ -155,3 +91,67 @@ def add_user(request):
         return render(request, 'create_user.html', {
             'msg': result
         })
+
+def create_user_list(request):
+    users_list_dev = user_list_to_env('开发')
+    users_list_test = user_list_to_env('测试')
+    users_list_online = user_list_to_env('线上')
+
+    context = {
+        'users_list_dev': users_list_dev,
+        'users_list_test': users_list_test,
+        'users_list_online': users_list_online
+    }
+    return context
+
+
+def user_list_to_env(env):
+    """
+    根据环境，生成列表
+    :return:
+    """
+    users = CreateUserTable.objects.filter(environment=env).order_by('-id')[:10]
+    user_list = []
+    id = 0
+    for user in users:
+        id += 1
+        user_list.append(
+            {
+                'id': id,
+                'user_name': user.user_name,
+                'interest': user.interest,
+                'personality_label': user.personality_label,
+                'create_time': user.create_time
+            }
+        )
+    return user_list
+
+def custom_context_processor(request):
+    """
+    查询各功能的使用数，即表记录总数
+    :param request:
+    :return:
+    """
+    # 创建用户使用数
+    CreateUserTable_count = CreateUserTable.objects.all().count()
+    FeedBack_count = FeedBackTable.objects.filter(resolve='否').count()
+    count_dict = {
+        'CreateUserTable_count': CreateUserTable_count,
+        'FeedBack_count': FeedBack_count,
+    }
+    # 你可以在这里添加更多的动态内容到上下文中
+    return count_dict
+
+
+def get_base_template_context(request):
+    """
+    全局参数
+    :param request:
+    :return:
+    """
+    base_template_context = {
+        'custom_template_var': '这是一个自定义的基础模板变量',
+    }
+    base_template_context.update(custom_context_processor(request))
+    base_template_context.update(create_user_list(request))
+    return base_template_context
