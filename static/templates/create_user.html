@@ -294,8 +294,8 @@
                                     <form method="POST" action="{% url 'user:rollback_add_user' %}" autocomplete="off">
                                         {% csrf_token %}
                                         <div class="form-group">
-                                            <label class="title">提交记录ID</label>
-                                            <input type="text" class="form-control" placeholder="可通过提交记录，获取对应提交数据的ID" name="id" maxlength="20" required>
+                                            <label class="title">提交记录ID</label><code>（可通过提交记录获取对应的ID）</code>
+                                            <input class="form-control" type="number" name="id" placeholder="请输入ID" required>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="submit" class="tst3 btn btn-danger waves-effect waves-light ">回滚</button>
