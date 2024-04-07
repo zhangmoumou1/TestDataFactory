@@ -242,7 +242,7 @@ python建议安装3.8以上版本，并执行以下命令安装依赖包
 在./static/templates/base_user.py内新增页面入口
 ![img.png](static/picture/doc5.png)
 
-##### 1）编写详情页
+##### 2）编写详情页
 ##### ☕具体前端组件代码可参考./static/平台demo.rar
 在./static/templates下，新增页面`create_user.html`
 
