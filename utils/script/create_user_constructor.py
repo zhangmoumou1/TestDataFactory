@@ -25,7 +25,7 @@ class CreateUser(object):
                    f'执行环境：{env}，\n' \
                    f'婚姻状况：{is_marital}，\n' \
                    f'出生日期：{birthdate}，\n' \
-                   f'年龄：{weight}，\n' \
+                   f'体重：{weight}kg，\n' \
                    f'性别：{sex}，\n' \
                    f'个性标签：{personality_label}，\n' \
                    f'爱好：{interest}，\n' \
