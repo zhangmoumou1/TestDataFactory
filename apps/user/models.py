@@ -32,6 +32,7 @@ class CreateUserTable(models.Model):
     personality_label = models.CharField(max_length=100, null=True, verbose_name='个性标签')
     interest = models.CharField(max_length=100, null=True, verbose_name='爱好')
     motto = models.TextField(null=True, verbose_name='座右铭')
+    is_rollback = models.BooleanField(null=True,default=False, verbose_name='是否回滚')
     create_time = models.DateTimeField(auto_now=True, verbose_name='创建时间')
     update_time = models.DateTimeField(auto_now=True, verbose_name='更新时间')
     create_by = models.CharField(max_length=10, null=True, default='sys', verbose_name='创建人')

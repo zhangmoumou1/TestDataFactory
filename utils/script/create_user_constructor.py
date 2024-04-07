@@ -30,10 +30,11 @@ class CreateUser(object):
                    f'个性标签：{personality_label}，\n' \
                    f'爱好：{interest}，\n' \
                    f'座右铭：{motto}'
-            result = f'创建用户成功：\n' \
+            result = f'创建用户成功\n' \
                      f'{info}'
         except Exception as e:
-            result = f'创建用户失败，{e}'
+            result = f'创建用户失败\n' \
+                     f'{e}'
         finally:
             Log().info(result)
             return result

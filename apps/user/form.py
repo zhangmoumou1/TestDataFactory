@@ -37,3 +37,9 @@ class createUserForm(forms.Form):
     motto = forms.CharField(max_length=1000, required=False, error_messages={
         'max_length': '座右铭最大长度为1000',
     })
+
+class rollbackUserForm(forms.Form):
+    """
+    回滚创建用户
+    """
+    id = forms.IntegerField(required=True)

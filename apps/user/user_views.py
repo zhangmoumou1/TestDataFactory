@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from user.form import createUserForm, FeedbackForm
+from user.form import createUserForm, FeedbackForm, rollbackUserForm
 from user.models import CreateUserTable, FeedBackTable
 from utils.script.create_user_constructor import CreateUser
+from utils.script.create_user_rollback import RollbackCreateUser
 
 # Create your views here.
 
@@ -92,6 +93,43 @@ def add_user(request):
             'msg': result
         })
 
+def rollback_add_user(request):
+    """
+    根据ID回滚提交记录
+    :param request:
+    :return:
+    """
+    try:
+        if request.method == 'GET':
+            return render(request, 'create_user.html')
+        else:
+            rollback_user_form = rollbackUserForm(request.POST)
+            if rollback_user_form.is_valid():
+                id = rollback_user_form.cleaned_data['id']
+                # 调用业务核心脚本
+                try:
+                    record = CreateUserTable.objects.get(id=id)
+                except:
+                    record = False
+                if record:
+                    result = RollbackCreateUser.rollback_user(record.id, record.environment, record.user_name)
+                    CreateUserTable.objects.filter(id=id).update(is_rollback=1)
+                else:
+                    return render(request, 'create_user.html', {
+                        'msg': f'未找到ID={id}的提交记录'
+                    })
+                return render(request, 'create_user.html', {
+                    'msg': result
+                })
+            else:
+                return render(request, 'create_user.html', {
+                    'rollback_user_form': rollback_user_form
+                })
+    except:
+        return render(request, 'create_user.html', {
+            'msg': result
+        })
+
 def create_user_list(request):
     users_list_dev = user_list_to_env('开发')
     users_list_test = user_list_to_env('测试')
@@ -117,7 +155,7 @@ def user_list_to_env(env):
         id += 1
         user_list.append(
             {
-                'id': id,
+                'id': user.id,
                 'user_name': user.user_name,
                 'interest': user.interest,
                 'personality_label': user.personality_label,
