@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from datetime import datetime
 from user.form import createUserForm, FeedbackForm, rollbackUserForm
 from user.models import CreateUserTable, FeedBackTable
 from utils.script.create_user_constructor import CreateUser
@@ -112,8 +113,9 @@ def rollback_add_user(request):
                 except:
                     record = False
                 if record:
+                    now = datetime.now()
                     result = RollbackCreateUser.rollback_user(record.id, record.environment, record.user_name)
-                    CreateUserTable.objects.filter(id=id).update(is_rollback=1)
+                    CreateUserTable.objects.filter(id=id).update(is_rollback=1, update_time=now)
                 else:
                     return render(request, 'create_user.html', {
                         'msg': f'未找到ID={id}的提交记录'
