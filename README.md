@@ -1,5 +1,8 @@
 # TestDataFactory
 ## 一、平台架构介绍
+### 在线体验
+🍍 点击打开即可体验：http://zhangyanc.club:8088/
+
 ### 技术栈
 - [x] 🎨 Django（后端）
 - [x] 🏐 Bootstrap（前端）
