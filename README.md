@@ -1,14 +1,11 @@
 # TestDataFactory
 
 <p>
-    <a href="https://www.python.org/downloads/"><img src="http://cdn.zhangyanc.club/cdn/readme/python-version1.svg"></a>
-    <a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/status-updating-brightgreen.svg"></a>
-    <a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/website.svg" alt="website"></a>
-    <a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/test.svg"></a>
-    <a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/docs.svg"></a>	
-	<a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/Branch-master-green.svg" alt="Branch"></a>
+    <a href="https://www.python.org/downloads/"><img src="http://cdn.zhangyanc.club/cdn/readme/language-python-django-bootstrap.svg"></a>
+    <a href="https://github.com/zhangmoumou1/TestApiFramework"><img src="http://cdn.zhangyanc.club/cdn/readme/platform.svg"></a>
+    <a href="https://im.qq.com/index/"><img src="http://cdn.zhangyanc.club/cdn/readme/qq.svg"></a>
+    <a href="http://www.zhangyanc.club"><img src="http://cdn.zhangyanc.club/cdn/readme/personblog.svg"></a>
 </p>
-
 ## 一、平台架构介绍
 ### 在线体验
 > 首次打开可能过慢，请耐心等待
