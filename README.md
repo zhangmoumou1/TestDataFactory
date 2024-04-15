@@ -1,4 +1,11 @@
 # TestDataFactory
+
+<p>
+    <a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/status-updating-brightgreen.svg"></a>
+    <a href="https://www.python.org/downloads/"><img src="http://cdn.zhangyanc.club/cdn/readme/python-version.svg"></a>
+    <a href="#"><img src="http://cdn.zhangyanc.club/cdn/readme/Branch-master-green.svg" alt="Branch"></a>
+</p>
+<br />
 ## 一、平台架构介绍
 ### 在线体验
 > 首次打开可能过慢，请耐心等待
@@ -18,13 +25,13 @@
 - [x] ⚽ 前端组件代码参考：./static/平台demo.rar（注意引用js和css库）
 
 首页入口
-![img.png](static/picture/doc3.png)
+![img.png](http://cdn.zhangyanc.club/cdn/readme/doc3.png)
 功能详情
-![img.png](static/picture/doc2.png)
+![img.png](http://cdn.zhangyanc.club/cdn/readme/doc2.png)
 提交记录
-![img.png](static/picture/doc0.png)
+![img.png](http://cdn.zhangyanc.club/cdn/readme/doc0.png)
 ### 1、Django介绍（python开发框架）
-![img.png](static/picture/doc1.png)
+![img.png](http://cdn.zhangyanc.club/cdn/readme/doc1.png)
 官方文档：https://docs.djangoproject.com/zh-hans/2.0/
 Django 是用 Python 开发的一个免费开源的 Web 框架，是一个遵循 MVC 设计模式的框架，和Spring（Java开发框架）类似。
 
@@ -62,7 +69,7 @@ python建议安装3.8以上版本，并执行以下命令安装依赖包
     }
 
 ### 2、项目结构
-![img.png](static/picture/doc4.png)
+![img.png](http://cdn.zhangyanc.club/cdn/readme/doc4.png)
 ## 三、开发示例演示
 这里以`创建用户`为功能例子，完成整个流程的开发，这里已经建好了apps/user目录，用户相关的功能都归类到此目录下
 
@@ -247,14 +254,14 @@ python建议安装3.8以上版本，并执行以下命令安装依赖包
 #### 6、编写模板（前端页面）
 ##### 1）编写入口
 在./static/templates/base_user.py内新增页面入口
-![img.png](static/picture/doc5.png)
+![img.png](http://cdn.zhangyanc.club/cdn/readme/doc5.png)
 
 ##### 2）编写详情页
 ##### ☕具体前端组件代码可参考./static/平台demo.rar
 在./static/templates下，新增页面`create_user.html`
 
 详见具体代码...
-![img.png](static/picture/doc6.png)
+![img.png](http://cdn.zhangyanc.club/cdn/readme/doc6.png)
 
 #### 7、本地服务调试
 在项目根路径执行`python manage.py runserver`运行项目，无报错说明运行成功， 并打开`http://127.0.0.1:8000/`
