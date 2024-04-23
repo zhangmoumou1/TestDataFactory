@@ -9,11 +9,11 @@ function print_line() {
 
 print_line
 echo -ne "\n"
-echo "ps -ef | grep python3 | grep -v grep | awk '{print $2}' | xargs kill"
-ps -ef | grep python3 | grep -v grep | awk '{print $2}' | xargs kill
+echo "ps -ef | grep 0:8088 | grep -v grep | awk '{print $2}' | xargs kill"
+ps -ef | grep 0:8088 | grep -v grep | awk '{print $2}' | xargs kill
 
 echo -ne "\n"
 print_line
 echo -ne "\n"
-echo "ps -ef | grep python3 | grep -v grep result is:"
-ps -ef | grep python3 | grep -v grep
+echo "ps -ef | grep 0:8088 | grep -v grep result is:"
+ps -ef | grep 0:8088 | grep -v grep
