@@ -88,7 +88,7 @@ DATABASES = {
         'NAME': 'TestDataFactory',           # 数据库库名（需提前创建好数据库）
         'USER': 'root',            # 用户名
         'PASSWORD': 'root123456',     # 连接密码
-        'HOST': 'localhost',   # 主机
+        'HOST': '127.0.0.1',   # 主机
         'PORT': '3306',             # mysql端口
     }
 }
