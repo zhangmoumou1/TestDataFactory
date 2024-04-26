@@ -6,3 +6,4 @@ DBUtils==2.0
 adbutils==0.6.2
 sshtunnel==0.4.0
 PyMysql==0.9.2
+gunicorn==19.9.0
