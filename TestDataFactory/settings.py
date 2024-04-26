@@ -81,15 +81,22 @@ WSGI_APPLICATION = 'TestDataFactory.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+mysql_host = os.getenv('MYSQL_HOST', '127.0.0.1')
+mysql_name = os.getenv('MYSQL_NAME', 'TestDataFactory')
+mysql_user = os.getenv('MYSQL_USER', 'root')
+mysql_pwd = os.getenv('MYSQL_PASSWORD', 'root123456')
+mysql_port = os.getenv('MYSQL_PORT', 3306)
+
 # 数据库连接信息
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'TestDataFactory',           # 数据库库名（需提前创建好数据库）
-        'USER': 'root',                      # 用户名
-        'PASSWORD': 'root123456',            # 密码
-        'HOST': '127.0.0.1',                 # 主机
-        'PORT': '3306',                      # 端口
+        'ENGINE': 'django.db.backends.mysql',  # 修改数据库为MySQL，并进行配置
+        'NAME': mysql_name,              # 数据库的名称
+        'USER': mysql_user,              # 数据库的用户名
+        'PASSWORD': mysql_pwd,           # 数据库的密码
+        'HOST': mysql_host,
+        'PORT': mysql_port,
+        'OPTIONS': {'charset': 'utf8mb4', 'use_unicode': True, 'connect_timeout': 30}
     }
 }
 
