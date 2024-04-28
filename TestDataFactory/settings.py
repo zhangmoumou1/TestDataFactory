@@ -17,7 +17,6 @@ from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, 'apps')  #目的是将文件夹apps设置为根目录
 
 
 # Quick-start development settings - unsuitable for production
@@ -125,6 +124,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # 静态文件
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
