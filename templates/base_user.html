@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Admin Press Admin Template - The Ultimate Bootstrap 4 Admin Template</title>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- chartist CSS -->
+    <link rel="stylesheet" href="{% static 'css/chartist.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/chartist-init.css' %}">
+    <link rel="stylesheet" href="{% static 'css/chartist-plugin-tooltip.css' %}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <!-- You can change the theme colors from here -->
+    <link rel="stylesheet" id="theme" href="{% static 'css/blue.css' %}">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<style>
+    .font-normal {
+        margin-left: 30px;
+    }
+    p.font-normal{
+        color: #9d9696;
+    }
+    .myText {
+        margin-bottom: 10px;
+        margin-top: 20px
+    }
+</style>
+
+<body class="fix-header card-no-border logo-center">
+    <div id="main-wrapper">
+        {% block content %}
+        <div class="page-wrapper">
+            <div class="container-fluid" style="margin-top: 30px">
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-3">
+                        <div class="card shadow mb-5 bg-white rounded">
+                            <div class="color-bar">
+                            </div>
+<!--                            <img class="card-img-top img-responsive" src=" {% static 'picture/img1.jpg' %}" alt="Card image cap">-->
+                            <div class="card-body">
+                                <div class="ribbon ribbon-danger ribbon-vertical-l"><i class="fa fa-check-circle"></i></div>
+                                <h4 class="font-normal">创建用户</h4>
+                                <p class="font-normal small">使用数：{{ CreateUserTable_count }}</p>
+                                <p class="myText">填写该功能的描述，xxxxxxxxxxxxxxxxxxxxx</p>
+                                <a style="color: #FFFFFF" href="{% url 'user:add_user' %}">
+                                    <button class="btn btn-success btn-rounded waves-effect waves-light m-t-20">查看详情
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-3">
+                        <div class="card shadow mb-5 bg-white rounded">
+                            <div class="color-bar">
+                            </div>
+<!--                            <img class="card-img-top img-responsive" src=" {% static 'picture/img1.jpg' %}" alt="Card image cap">-->
+                            <div class="card-body">
+                                <div class="ribbon ribbon-success ribbon-vertical-l"><i class="fa fa-check-circle"></i></div>
+                                <h4 class="font-normal">功能标题</h4>
+                                <p class="font-normal small">使用数：{{ CreateUserTable_count }}</p>
+                                <p class="myText">功能描述xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                                <a style="color: #FFFFFF" href="{% url 'user:add_user' %}">
+                                    <button class="btn btn-success btn-rounded waves-effect waves-light m-t-20">查看详情
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-3">
+                        <div class="card shadow mb-5 bg-white rounded">
+                            <div class="color-bar">
+                            </div>
+<!--                            <img class="card-img-top img-responsive" src=" {% static 'picture/img1.jpg' %}" alt="Card image cap">-->
+                            <div class="card-body">
+                                <div class="ribbon ribbon-primary ribbon-vertical-l"><i class="fa fa-check-circle"></i></div>
+                                <h4 class="font-normal">功能标题</h4>
+                                <p class="font-normal small">使用数：{{ CreateUserTable_count }}</p>
+                                <p class="myText">功能描述xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                                <a style="color: #FFFFFF" href="{% url 'user:add_user' %}">
+                                    <button class="btn btn-success btn-rounded waves-effect waves-light m-t-20">查看详情
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+					<!-- Column -->
+                    <div class="col-lg-3">
+                        <div class="card shadow mb-5 bg-white rounded">
+                            <div class="color-bar">
+                            </div>
+<!--                            <img class="card-img-top img-responsive" src=" {% static 'picture/img1.jpg' %}" alt="Card image cap">-->
+                            <div class="card-body">
+                                <div class="ribbon ribbon-warning ribbon-vertical-l"><i class="fa fa-check-circle"></i></div>
+                                <h4 class="font-normal">功能标题</h4>
+                                <p class="font-normal small">使用数：{{ CreateUserTable_count }}</p>
+                                <p class="myText">功能描述xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                                <a style="color: #FFFFFF" href="{% url 'user:add_user' %}">
+                                    <button class="btn btn-success btn-rounded waves-effect waves-light m-t-20">查看详情
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                </div>
+				<div class="row" style="margin-top: 20px">
+                    <!-- Column -->
+                    <div class="col-lg-3">
+                        <div class="card shadow mb-5 bg-white rounded">
+                            <div class="color-bar">
+                            </div>
+<!--                            <img class="card-img-top img-responsive" src=" {% static 'picture/img1.jpg' %}" alt="Card image cap">-->
+                            <div class="card-body">
+                                <div class="ribbon ribbon-info ribbon-vertical-l"><i class="fa fa-check-circle"></i></div>
+                                <h4 class="font-normal">功能标题</h4>
+                                <p class="font-normal small">使用数：{{ CreateUserTable_count }}</p>
+                                <p class="myText">功能描述xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                                <a style="color: #FFFFFF" href="{% url 'user:add_user' %}">
+                                    <button class="btn btn-success btn-rounded waves-effect waves-light m-t-20">查看详情
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-3">
+                        <div class="card shadow mb-5 bg-white rounded">
+                            <div class="color-bar">
+                            </div>
+<!--                            <img class="card-img-top img-responsive" src=" {% static 'picture/img1.jpg' %}" alt="Card image cap">-->
+                            <div class="card-body">
+                                <div class="ribbon ribbon-default ribbon-vertical-l"><i class="fa fa-check-circle"></i></div>
+                                <h4 class="font-normal">功能标题</h4>
+                                <p class="font-normal small">使用数：{{ CreateUserTable_count }}</p>
+                                <p class="myText">功能描述xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                                <a style="color: #FFFFFF" href="{% url 'user:add_user' %}">
+                                    <button class="btn btn-success btn-rounded waves-effect waves-light m-t-20">查看详情
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                </div>
+            </div>
+            <!--版权信息-->
+            <footer class="footer" style="font-size: 14px">Copyright 2024 xxx出品 浙ICP备xxxxx号<a target="_blank" href="https://sc.chinaz.com/moban/"></a></footer>
+        </div>
+        {% endblock %}
+    </div>
+</body>
+
+</html>

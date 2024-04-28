@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+<body class="fix-header card-no-border logo-center">
+    <div id="main-wrapper">
+        {% block content %}
+        <style>
+            #console {
+                min-height: 640px;
+            }
+            .myCheck {
+                margin-right: -110px
+            }
+            .form-group {
+                margin-top: -10px;
+            }
+            label.title {
+                color: #0b2e13;
+            }
+            .label-info {
+                background-color: #22c8c0
+            }
+            .bootstrap-tagsinput {
+                min-width: 100%;
+            }
+        </style>
+
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <!-- Row -->
+                <div class="row" style="margin-top: 20px">
+                    <div class="col-md-6">
+                        <div class="card card-body" id="console" style="background-color: #000000;
+							  padding: 20px; color: #9eeaf9">
+                            <div>控制台
+                                <i class="fa fa-circle text-info font-14"></i>
+                                <i class="fa fa-circle text-success font-14"></i>
+                                <i class="fa fa-circle text-danger font-14"></i>
+                            </div>
+                            <a style="text-align: right; margin-top: -25px" class="btn-minimize" data-action="expand">
+                                <i class="mdi mdi-arrow-expand"></i>
+                            </a>
+                            <div class="error" style="font-size: 13px; color: #d1dde4; margin-top: 10px">
+                                {{ msg | linebreaks }}
+                                {% for key,err in create_user_form.errors.items %}
+                                {{ err }}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card card-body" id="console">
+                            <h3 class="box-title m-b-0">创建用户
+                                <span class="text-muted m-b-10 font-10" style="font-size: 14px">（提供者：张某某）
+                                </span>
+                            </h3>
+                            <p class="text-muted m-b-10 font-12"></p>
+                            <div class="row">
+                                <div class="col-sm-12 col-xs-12">
+                                    <form method="POST" action="{% url 'user:add_user' %}" autocomplete="off">
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-lg-8">
+												 <label class="title">环境</label>
+                                                 <div class="col-md-9" style="margin-left: -15px">
+                                                    <div class="radio-list">
+                                                        <label class="custom-control custom-radio">
+                                                            <input id="radio1" value="开发" name="environment" type="radio" class="custom-control-input">
+                                                            <span class="custom-control-indicator"></span>
+                                                            <span class="custom-control-description">开发</span>
+                                                        </label>
+                                                        <label class="custom-control custom-radio">
+                                                            <input id="radio2" value="测试" name="environment" type="radio" checked="" class="custom-control-input">
+                                                            <span class="custom-control-indicator"></span>
+                                                            <span class="custom-control-description">测试</span>
+                                                        </label>
+                                                        <label class="custom-control custom-radio">
+                                                            <input id="radio3" value="线上" name="environment" type="radio" class="custom-control-input">
+                                                            <span class="custom-control-indicator"></span>
+                                                            <span class="custom-control-description">线上</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+											</div>
+											<div class="col-lg-4" style="margin-left: -95px">
+												<label class="title">婚姻状况</label>
+                                                <div class="switch">
+                                                    <label style="font-size: 15px">已婚<input type="checkbox" name="is_marital" checked=""><span class="lever"></span>未婚</label>
+                                                </div>
+											</div>
+
+                                        </div>
+                                        <div class="row" style="margin-bottom: 12px; margin-top: 0px">
+                                            <div class="col-lg-6">
+												<label class="title">用户名</label>
+                                                <input type="text" class="form-control" placeholder="请输入用户名" name="user_name" maxlength="20" required>
+											</div>
+											<div class="col-lg-6">
+												<label class="title">出生年月</label>
+                                            <input type="text" class="form-control" value="2020-06-20" placeholder="请选择年-月-日" id="mdate" name="birthdate" required>
+											</div>
+										</div>
+                                        <div class="row" style="margin-bottom: 10px">
+                                            <div class="col-lg-6">
+												<label class="title">体重（kg）</label>
+												<input class="form-control" type="number" value="50" id="example-number-input" name="weight" required>
+											</div>
+											<div class="col-lg-6">
+												<label class="title">性别</label>
+												<select class="form-control custom-select" name="sex">
+                                                <option value="1">男</option>
+                                                <option value="2">女</option>
+                                            </select>
+											</div>
+										</div>
+                                        <div class="form-group">
+                                            <p style="margin-top: 25px; margin-bottom: -3px"><label class="title">个人标签（输入后回车添加标签）</label></p>
+                                            <input type="text" value="性格外向,乐于助人,热爱集体" name="personality_label" data-role="tagsinput" placeholder="添加标签">
+                                        </div>
+                                        <div class="demo-checkbox">
+											<div class="form-group">
+												<label class="title">爱好</label>
+												<div style="display: flex; margin-top: -10px">
+													<input name="interest1" value="游泳" id="md_checkbox_1" type="checkbox" class="chk-col-cyan" checked="">
+													<label class="myCheck" for="md_checkbox_1">游泳</label>
+													<input name="interest2" value="篮球" id="md_checkbox_2" type="checkbox" class="chk-col-cyan" checked="">
+													<label class="myCheck" for="md_checkbox_2">篮球</label>
+													<input name="interest3" value="网球" id="md_checkbox_3" type="checkbox" class="chk-col-cyan" checked="">
+													<label class="myCheck" for="md_checkbox_3">网球</label>
+                                                    <input name="interest4" value="爬山" id="md_checkbox_4" type="checkbox" class="chk-col-cyan">
+													<label class="myCheck" for="md_checkbox_4">爬山</label>
+                                                    <input name="interest5" value="滑雪" id="md_checkbox_5" type="checkbox" class="chk-col-cyan">
+													<label for="md_checkbox_5">滑雪</label>
+												</div>
+											</div>
+										</div>
+										<div class="form-group" style="margin-top: -20px">
+                                            <label class="title">座右铭</label>
+                                            <textarea type="text" class="form-control" placeholder="请输入座右铭" name="motto" maxlength="1000"></textarea>
+                                        </div>
+                                        <button type="submit" class="tst3 btn btn-success waves-effect waves-light m-r-15">执行</button>
+                                        <button type="reset" class="btn btn-inverse waves-effect waves-light m-r-15">重置</button>
+                                        <button id="myButton2" type="button" class="btn btn-warning waves-effect waves-light m-r-15" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal">规则
+                                        </button>
+                                        <button id="myButton2" type="button" class="btn btn-danger waves-effect waves-light" data-bs-toggle="modal"
+                                                    data-bs-target="#rollbackModal">回滚
+                                        </button>
+                                        <button style="float: right" id="myButton2" type="button" class="btn btn-secondary waves-effect waves-light" data-bs-toggle="modal"
+                                                    data-bs-target="#recordList">提交记录
+                                        </button>
+                                        <!--规则弹窗-->
+                                        <div class="modal modal-blur fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="font-weight-bold"><i class="ti ti-smallcap"></i> 规则详情</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h5>1、注意事项1</h5>
+                                                        功能规则可在此处说明功能规则可在此处说明功能规则可在此处说明
+                                                        <br>
+                                                        <br>
+                                                        <h5>2、注意事项2</h5>
+                                                        功能规则可在此处说明功能规则可在此处说明功能规则可在此处说明
+                                                        <br>
+                                                        功能规则可在此处说明...
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">关闭</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--提交记录弹窗-->
+                                        <div class="modal modal-blur fade" id="recordList" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <div class="card-body">
+                                                            <h4 class="font-weight-bold"><i class="mdi mdi-table-large"></i> 最近10条提交记录</h4>
+                                                            <!-- Nav tabs -->
+                                                            <ul class="nav nav-tabs" role="tablist">
+                                                                <li class="nav-item"> <a href="#dev" class="nav-link active" data-toggle="tab" aria-expanded="false">开发</a> </li>
+                                                                <li class="nav-item"> <a href="#test" class="nav-link" data-toggle="tab" aria-expanded="false">测试</a> </li>
+                                                                <li class="nav-item"> <a href="#online" class="nav-link" data-toggle="tab" aria-expanded="true">线上</a> </li>
+                                                            </ul>
+                                                            <div class="tab-content br-n pn">
+                                                                <div id="dev" class="tab-pane active">
+                                                                    <div class="card-body">
+                                                                        <div class="table-responsive">
+                                                                            <table class="table color-table success-table table-hover">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>ID</th>
+                                                                                        <th>姓名</th>
+                                                                                        <th>兴趣爱好</th>
+                                                                                        <th>个性标签</th>
+                                                                                        <th>创建时间</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                {% for user in users_list_dev %}
+                                                                                    <tr>
+                                                                                        <td>{{ user.id }}</td>
+                                                                                        <td>{{ user.user_name }}</td>
+                                                                                        <td>{{ user.interest }}</td>
+                                                                                        <td>{{ user.personality_label }}</td>
+                                                                                        <td>{{ user.create_time }}</td>
+                                                                                    </tr>
+                                                                                {% endfor %}
+
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="test" class="tab-pane">
+                                                                    <div class="card-body">
+                                                                        <div class="table-responsive">
+                                                                            <table class="table color-table success-table table-hover">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>ID</th>
+                                                                                        <th>姓名</th>
+                                                                                        <th>兴趣爱好</th>
+                                                                                        <th>个性标签</th>
+                                                                                        <th>创建时间</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                {% for user_test in users_list_test %}
+                                                                                    <tr>
+                                                                                        <td>{{ user_test.id }}</td>
+                                                                                        <td>{{ user_test.user_name }}</td>
+                                                                                        <td>{{ user_test.interest }}</td>
+                                                                                        <td>{{ user_test.personality_label }}</td>
+                                                                                        <td>{{ user_test.create_time }}</td>
+                                                                                    </tr>
+                                                                                {% endfor %}
+
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="online" class="tab-pane">
+                                                                    <div class="card-body">
+                                                                        <div class="table-responsive">
+                                                                            <table class="table color-table success-table table-hover">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>ID</th>
+                                                                                        <th>姓名</th>
+                                                                                        <th>兴趣爱好</th>
+                                                                                        <th>个性标签</th>
+                                                                                        <th>创建时间</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                {% for user_online in users_list_online %}
+                                                                                    <tr>
+                                                                                        <td>{{ user_online.id }}</td>
+                                                                                        <td>{{ user_online.user_name }}</td>
+                                                                                        <td>{{ user_online.interest }}</td>
+                                                                                        <td>{{ user_online.personality_label }}</td>
+                                                                                        <td>{{ user_online.create_time }}</td>
+                                                                                    </tr>
+                                                                                {% endfor %}
+
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--回滚弹窗-->
+                    <div class="modal modal-blur fade" id="rollbackModal" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="font-weight-bold"><i class="ti ti-back-right"></i> 记录回滚</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+
+                                <div class="modal-body">
+<!--                                    <p><h6 class="card-subtitle" style="color: #a94442">可通过提交记录，获取对应提交数据的ID</h6></p>-->
+                                    <form method="POST" action="{% url 'user:rollback_add_user' %}" autocomplete="off">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <label class="title">提交记录ID</label><code>（可通过提交记录获取对应的ID）</code>
+                                            <input class="form-control" type="number" name="id" placeholder="请输入ID" required>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="tst3 btn btn-danger waves-effect waves-light ">回滚</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer" style="font-size: 14px">Copyright 2024 xxx出品 浙ICP备xxxxx号<a target="_blank" href="https://sc.chinaz.com/moban/"></a></footer>
+        </div>
+        {% endblock %}A
+    </div>
+</body>
+
+</html>
