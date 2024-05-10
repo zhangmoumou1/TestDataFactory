@@ -21,6 +21,7 @@
 - [x] 👟 Mysql
 
 ### 参考文档
+- [x] ☕ 平台开发及部署文档：http://zhangyanc.club/subject/5/
 - [x] 🚚 Django官方文档：https://docs.djangoproject.com/zh-hans/3.1/
 - [x] ☕ Bootstrap官方文档：https://v5.bootcss.com/docs
 - [x] ⚽ 前端组件代码参考：./static/平台demo.rar（注意引用js和css库）
