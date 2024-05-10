@@ -7,6 +7,8 @@
     <a href="http://www.zhangyanc.club"><img src="http://cdn.zhangyanc.club/cdn/readme/personblog.svg"></a>
 </p>
 
+🎉 平台开发及部署文档：<a href="http://zhangyanc.club/subject/5/<a">点击查阅</a>
+
 ## 一、平台架构介绍
 ### 在线体验
 > 首次打开可能过慢，请耐心等待
@@ -21,7 +23,6 @@
 - [x] 👟 Mysql
 
 ### 参考文档
-- [x] ☕ 平台开发及部署文档：http://zhangyanc.club/subject/5/
 - [x] 🚚 Django官方文档：https://docs.djangoproject.com/zh-hans/3.1/
 - [x] ☕ Bootstrap官方文档：https://v5.bootcss.com/docs
 - [x] ⚽ 前端组件代码参考：./static/平台demo.rar（注意引用js和css库）
@@ -285,4 +286,4 @@ python建议安装3.8以上版本，并执行以下命令安装依赖包
 -->
 如有问题QQ：1392364470，觉得不错的Star一下哦!<br>
 
-🎉 平台开发及部署文档：http://zhangyanc.club/subject/5/
+🎉 平台开发及部署文档：<a href="http://zhangyanc.club/subject/5/<a">点击查阅</a>
