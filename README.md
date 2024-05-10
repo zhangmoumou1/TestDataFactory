@@ -9,29 +9,28 @@
 
 🎉 平台开发及部署文档：<a href="http://zhangyanc.club/subject/5/<a">点击查阅</a>
 
-## 一、平台架构介绍
-### 在线体验
+## 在线体验
 > 首次打开可能过慢，请耐心等待
 
 🍍 点击打开即可体验：http://zhangyanc.club:8088/
 
 
 
-### 技术栈
+## 技术栈
 - [x] 🎨 Django（后端）
 - [x] 🏐 Bootstrap（前端）
 - [x] 👟 Mysql
 
-### 参考文档
+## 参考文档
 - [x] 🚚 Django官方文档：https://docs.djangoproject.com/zh-hans/3.1/
 - [x] ☕ Bootstrap官方文档：https://v5.bootcss.com/docs
 - [x] ⚽ 前端组件代码参考：./static/平台demo.rar（注意引用js和css库）
 
-首页入口
+### 首页
 ![img.png](http://cdn.zhangyanc.club/cdn/readme/doc3.png)
-功能详情
+### 功能详情
 ![img.png](http://cdn.zhangyanc.club/cdn/readme/doc2.png)
-提交记录
+### 提交记录
 ![img.png](http://cdn.zhangyanc.club/cdn/readme/doc0.png)
 <!-- 这部分内容将不会在Markdown中显示
 ### 1、Django介绍（python开发框架）
