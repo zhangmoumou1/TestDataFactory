@@ -7,7 +7,7 @@
     <a href="http://www.zhangyanc.club"><img src="http://cdn.zhangyanc.club/cdn/readme/personblog.svg"></a>
 </p>
 
-🎉 平台开发及部署文档：<a href="http://zhangyanc.club/subject/5/<a">点击查阅</a>
+🎉 平台开发及部署文档：<a href="http://zhangyanc.club/subject/5/">点击查阅</a>
 
 ## 平台介绍
 针对测试过程中的造数提效操作（执行sql/接口等），都可在此平台进行开发，实现工具共享。
