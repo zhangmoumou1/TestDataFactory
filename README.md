@@ -292,4 +292,4 @@ python建议安装3.8以上版本，并执行以下命令安装依赖包
 
 如有问题QQ：1392364470，觉得不错的Star一下哦!<br>
 
-🎉 平台开发及部署文档：<a href="http://zhangyanc.club/subject/5/<a">点击查阅</a>
+🎉 平台开发及部署文档：<a href="http://zhangyanc.club/subject/5/">点击查阅</a>
